@@ -1,6 +1,6 @@
 # SexIst
 
-_"Sexism is bad. The name of the library is derived from word "Sex" and my surname :)" - Andrej Istomin._
+_"Sexism is bad. The name of the library is derived from the word "Sex" and my surname :)" - Andrej Istomin._
    
 ## Description
 
