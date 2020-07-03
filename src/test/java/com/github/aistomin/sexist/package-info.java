@@ -674,37 +674,7 @@
  * Public License instead of this License.  But first, please read
  * <https://www.gnu.org/licenses/why-not-lgpl.html>.
  */
-package com.github.aistomin.sexist;
-
 /**
- * Created by aistomin on 02.07.20.
- * <p>
- * Dummy class.
- *
- * @since 0.1
+ * Root test package.
  */
-public class Dummy {
-
-    /**
-     * Dummy field.
-     */
-    private final String dum;
-
-    /**
-     * Ctor.
-     *
-     * @param dummy Dummy value.
-     */
-    public Dummy(final String dummy) {
-        this.dum = dummy;
-    }
-
-    /**
-     * Dummy method.
-     *
-     * @return Dummy value.
-     */
-    String dummy() {
-        return this.dum;
-    }
-}
+package com.github.aistomin.sexist;
