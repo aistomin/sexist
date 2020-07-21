@@ -680,19 +680,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * Created by aistomin on 02.07.20.
- * <p>
- * Test for {@link Dummy}.
+ * Test for {@link DefaultDictionary}.
+ *
  * @since 0.1
  */
-class DummyTest {
+class DefaultDictionaryTest {
 
     /**
-     * Dummy test.
+     * Check that names() method works correctly.
      */
     @Test
-    void dummy() {
-        final String val = "dummy";
-        Assertions.assertEquals(val, new Dummy(val).dummy());
+    void testNames() {
+        Assertions.assertNull(new DefaultDictionary().names());
     }
 }

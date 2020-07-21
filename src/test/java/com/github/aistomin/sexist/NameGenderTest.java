@@ -676,35 +676,31 @@
  */
 package com.github.aistomin.sexist;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 /**
- * Created by aistomin on 02.07.20.
- * <p>
- * Dummy class.
+ * Test for {@link NameGender}.
  *
  * @since 0.1
  */
-public class Dummy {
+class NameGenderTest {
 
     /**
-     * Dummy field.
+     * Check that we have correct values inside the enum.
      */
-    private final String dum;
-
-    /**
-     * Ctor.
-     *
-     * @param dummy Dummy value.
-     */
-    public Dummy(final String dummy) {
-        this.dum = dummy;
-    }
-
-    /**
-     * Dummy method.
-     *
-     * @return Dummy value.
-     */
-    String dummy() {
-        return this.dum;
+    @Test
+    void testValues() {
+        Assertions.assertEquals(
+            new NameGender[]{
+                NameGender.MALE,
+                NameGender.MOSTLY_MALE,
+                NameGender.FEMALE,
+                NameGender.MOSTLY_FEMALE,
+                NameGender.ANDROGYNOUS,
+                NameGender.UNKNOWN,
+            }.length,
+            NameGender.values().length
+        );
     }
 }
