@@ -676,6 +676,8 @@
  */
 package com.github.aistomin.sexist;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -685,6 +687,11 @@ import java.util.Map;
  * @since 0.1
  */
 public final class DefaultDictionary implements NamesDictionary {
+
+    /**
+     * The ordered sequence of dictionaries.
+     */
+    private final List<NamesDictionary> dictionaries;
 
     /**
      * Ctor.
@@ -698,16 +705,22 @@ public final class DefaultDictionary implements NamesDictionary {
      * and in which order.
      *
      * @param dicts The ordered sequence of dictionaries.
-     * @todo: Issue #18. Let's implement the ctor, remove PMD warning
-     *  suppression and remove this todo.
      */
-    @SuppressWarnings("PMD.UnusedFormalParameter")
     public DefaultDictionary(final NamesDictionary... dicts) {
-        // the method is not implemented yet.
+        this.dictionaries = Arrays.asList(dicts);
     }
 
     @Override
     public Map<String, NameGender> names() {
         return null;
+    }
+
+    /**
+     * Get the ordered sequence of dictionaries.
+     * @return Dictionaries sequence.
+     * @todo: Issue-20. Let's remove this method and adjust the tests.
+     */
+    List<NamesDictionary> orderedDictionariesSequence() {
+        return this.dictionaries;
     }
 }

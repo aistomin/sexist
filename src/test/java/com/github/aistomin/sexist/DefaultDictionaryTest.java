@@ -676,6 +676,7 @@
  */
 package com.github.aistomin.sexist;
 
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -692,5 +693,21 @@ class DefaultDictionaryTest {
     @Test
     void testNames() {
         Assertions.assertNull(new DefaultDictionary().names());
+    }
+
+    /**
+     * Check that we correctly initialise the sequence of the dictionaries.
+     */
+    @Test
+    void testDictionariesSequence() {
+        final NamesDictionary first = new DefaultDictionary();
+        final NamesDictionary second = new DefaultDictionary();
+        final NamesDictionary third = new DefaultDictionary();
+        final List<NamesDictionary> dicts = new DefaultDictionary(
+            first, second, third
+        ).orderedDictionariesSequence();
+        Assertions.assertEquals(first, dicts.get(0));
+        Assertions.assertEquals(second, dicts.get(1));
+        Assertions.assertEquals(third, dicts.get(2));
     }
 }
