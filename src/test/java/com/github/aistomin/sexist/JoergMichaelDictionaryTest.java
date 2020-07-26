@@ -691,6 +691,6 @@ class JoergMichaelDictionaryTest {
      */
     @Test
     void testNames() {
-        Assertions.assertNull(new JoergMichaelDictionary().names());
+        Assertions.assertNotNull(new JoergMichaelDictionary().names());
     }
 }

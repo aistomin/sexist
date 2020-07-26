@@ -677,13 +677,13 @@
 package com.github.aistomin.sexist;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Default name <-> gender dictionary.
  *
- * @todo: Issue #17. Let's implement the method and remove this todo.
  * @since 0.1
  */
 public final class DefaultDictionary implements NamesDictionary {
@@ -712,11 +712,16 @@ public final class DefaultDictionary implements NamesDictionary {
 
     @Override
     public Map<String, NameGender> names() {
-        return null;
+        final Map<String, NameGender> result = new HashMap<>();
+        for (final NamesDictionary dic : this.dictionaries) {
+            result.putAll(dic.names());
+        }
+        return result;
     }
 
     /**
      * Get the ordered sequence of dictionaries.
+     *
      * @return Dictionaries sequence.
      * @todo: Issue-20. Let's remove this method and adjust the tests.
      */

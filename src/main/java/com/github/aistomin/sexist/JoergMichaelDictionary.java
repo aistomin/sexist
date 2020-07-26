@@ -676,6 +676,7 @@
  */
 package com.github.aistomin.sexist;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -688,6 +689,6 @@ public final class JoergMichaelDictionary implements NamesDictionary {
 
     @Override
     public Map<String, NameGender> names() {
-        return null;
+        return new HashMap<>();
     }
 }

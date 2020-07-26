@@ -692,7 +692,7 @@ class DefaultDictionaryTest {
      */
     @Test
     void testNames() {
-        Assertions.assertNull(new DefaultDictionary().names());
+        Assertions.assertNotNull(new DefaultDictionary().names());
     }
 
     /**
