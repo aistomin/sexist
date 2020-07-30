@@ -723,14 +723,4 @@ public final class DefaultDictionary implements NamesDictionary {
         }
         return result;
     }
-
-    /**
-     * Get the ordered sequence of dictionaries.
-     *
-     * @return Dictionaries sequence.
-     * @todo: Issue-20. Let's remove this method and adjust the tests.
-     */
-    List<NamesDictionary> orderedDictionariesSequence() {
-        return this.dictionaries;
-    }
 }

@@ -677,7 +677,6 @@
 package com.github.aistomin.sexist;
 
 import java.util.AbstractMap;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -732,27 +731,12 @@ class DefaultDictionaryTest {
                         AbstractMap.SimpleEntry::getValue
                     )
                 )
-            )
+            ),
+            new DefaultDictionary()
         ).names();
         Assertions.assertNotNull(names);
         Assertions.assertEquals(NameGender.MALE, names.get(one));
         Assertions.assertEquals(NameGender.FEMALE, names.get(two));
         Assertions.assertEquals(NameGender.ANDROGYNOUS, names.get(three));
-    }
-
-    /**
-     * Check that we correctly initialise the sequence of the dictionaries.
-     */
-    @Test
-    void testDictionariesSequence() {
-        final NamesDictionary first = new DefaultDictionary();
-        final NamesDictionary second = new DefaultDictionary();
-        final NamesDictionary third = new DefaultDictionary();
-        final List<NamesDictionary> dicts = new DefaultDictionary(
-            first, second, third
-        ).orderedDictionariesSequence();
-        Assertions.assertEquals(first, dicts.get(0));
-        Assertions.assertEquals(second, dicts.get(1));
-        Assertions.assertEquals(third, dicts.get(2));
     }
 }
