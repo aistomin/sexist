@@ -676,7 +676,11 @@
  */
 package com.github.aistomin.sexist;
 
+import java.util.AbstractMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -692,7 +696,48 @@ class DefaultDictionaryTest {
      */
     @Test
     void testNames() {
-        Assertions.assertNotNull(new DefaultDictionary().names());
+        final String one = "name1";
+        final String two = "name2";
+        final String three = "name3";
+        final Map<String, NameGender> names = new DefaultDictionary(
+            new SimpleDictionary(
+                Stream.of(
+                    new AbstractMap.SimpleEntry<>(one, NameGender.MALE)
+                ).collect(
+                    Collectors.toMap(
+                        AbstractMap.SimpleEntry::getKey,
+                        AbstractMap.SimpleEntry::getValue
+                    )
+                )
+            ),
+            new SimpleDictionary(
+                Stream.of(
+                    new AbstractMap.SimpleEntry<>(one, NameGender.FEMALE),
+                    new AbstractMap.SimpleEntry<>(two, NameGender.FEMALE)
+                ).collect(
+                    Collectors.toMap(
+                        AbstractMap.SimpleEntry::getKey,
+                        AbstractMap.SimpleEntry::getValue
+                    )
+                )
+            ),
+            new SimpleDictionary(
+                Stream.of(
+                    new AbstractMap.SimpleEntry<>(one, NameGender.ANDROGYNOUS),
+                    new AbstractMap.SimpleEntry<>(two, NameGender.ANDROGYNOUS),
+                    new AbstractMap.SimpleEntry<>(three, NameGender.ANDROGYNOUS)
+                ).collect(
+                    Collectors.toMap(
+                        AbstractMap.SimpleEntry::getKey,
+                        AbstractMap.SimpleEntry::getValue
+                    )
+                )
+            )
+        ).names();
+        Assertions.assertNotNull(names);
+        Assertions.assertEquals(NameGender.MALE, names.get(one));
+        Assertions.assertEquals(NameGender.FEMALE, names.get(two));
+        Assertions.assertEquals(NameGender.ANDROGYNOUS, names.get(three));
     }
 
     /**

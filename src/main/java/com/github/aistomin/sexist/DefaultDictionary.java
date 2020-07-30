@@ -714,7 +714,12 @@ public final class DefaultDictionary implements NamesDictionary {
     public Map<String, NameGender> names() {
         final Map<String, NameGender> result = new HashMap<>();
         for (final NamesDictionary dic : this.dictionaries) {
-            result.putAll(dic.names());
+            for (
+                final Map.Entry<String, NameGender> entry
+                : dic.names().entrySet()
+            ) {
+                result.putIfAbsent(entry.getKey(), entry.getValue());
+            }
         }
         return result;
     }
