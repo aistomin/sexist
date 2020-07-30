@@ -716,7 +716,7 @@ public final class DefaultDictionary implements NamesDictionary {
         for (final NamesDictionary dic : this.dictionaries) {
             for (
                 final Map.Entry<String, NameGender> entry
-                : dic.names().entrySet()
+                    : dic.names().entrySet()
             ) {
                 result.putIfAbsent(entry.getKey(), entry.getValue());
             }
