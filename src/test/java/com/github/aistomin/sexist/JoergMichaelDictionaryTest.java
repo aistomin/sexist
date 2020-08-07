@@ -676,6 +676,7 @@
  */
 package com.github.aistomin.sexist;
 
+import java.util.Map;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -691,6 +692,13 @@ class JoergMichaelDictionaryTest {
      */
     @Test
     void testNames() {
-        Assertions.assertNotNull(new JoergMichaelDictionary().names());
+        final Map<String, NameGender> names = new JoergMichaelDictionary().names();
+        Assertions.assertEquals(NameGender.MALE, names.get("Aad"));
+        Assertions.assertEquals(NameGender.MOSTLY_MALE, names.get("Wissam"));
+        Assertions.assertEquals(NameGender.MOSTLY_MALE, names.get("Xesus"));
+        Assertions.assertEquals(NameGender.FEMALE, names.get("Zyta"));
+        Assertions.assertEquals(NameGender.MOSTLY_FEMALE, names.get("Thi"));
+        Assertions.assertEquals(NameGender.MOSTLY_FEMALE, names.get("Thin"));
+        Assertions.assertEquals(NameGender.ANDROGYNOUS, names.get("Jaylin"));
     }
 }

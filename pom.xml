@@ -12,6 +12,11 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>29.0-jre</version>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junitVersion}</version>
@@ -70,7 +75,7 @@
                                         <limit>
                                             <counter>LINE</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>1.00</minimum>
+                                            <minimum>0.95</minimum>
                                         </limit>
                                     </limits>
                                 </rule>
@@ -85,6 +90,9 @@
                 <version>0.18.19</version>
                 <configuration>
                     <license>file:${basedir}/LICENSE</license>
+                    <excludes>
+                        <exclude>checkstyle:/src/main/resources/joerg_michaels_dictionary.txt</exclude>
+                    </excludes>
                 </configuration>
                 <executions>
                     <execution>

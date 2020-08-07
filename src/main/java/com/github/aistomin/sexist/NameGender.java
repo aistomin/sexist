@@ -711,5 +711,42 @@ public enum NameGender {
     /**
      * Unknown gender. Used in case our system can not detect the gender.
      */
-    UNKNOWN
+    UNKNOWN;
+
+    /**
+     * Get gender by it's string representation.
+     *
+     * @param str The string.
+     * @return The gender.
+     */
+    static NameGender fromString(final String str) {
+        final NameGender result;
+        switch (str) {
+            case "M":
+                result = MALE;
+                break;
+            case "1M":
+                result = MOSTLY_MALE;
+                break;
+            case "?M":
+                result = MOSTLY_MALE;
+                break;
+            case "F":
+                result = FEMALE;
+                break;
+            case "1F":
+                result = MOSTLY_FEMALE;
+                break;
+            case "?F":
+                result = MOSTLY_FEMALE;
+                break;
+            case "?":
+                result = ANDROGYNOUS;
+                break;
+            default:
+                result = UNKNOWN;
+                break;
+        }
+        return result;
+    }
 }
