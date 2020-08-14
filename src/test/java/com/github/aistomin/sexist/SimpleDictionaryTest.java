@@ -702,4 +702,17 @@ class SimpleDictionaryTest {
         Assertions.assertEquals(1, names.size());
         Assertions.assertEquals(gender, names.get(name));
     }
+
+    /**
+     * Check that gender() method works correctly.
+     */
+    @Test
+    void testGender() {
+        final String name = "Alex";
+        final NameGender gender = NameGender.MALE;
+        final Map<String, NameGender> src = new HashMap<>();
+        src.put(name, gender);
+        final NamesDictionary dict = new SimpleDictionary(src);
+        Assertions.assertEquals(gender, dict.gender(name));
+    }
 }

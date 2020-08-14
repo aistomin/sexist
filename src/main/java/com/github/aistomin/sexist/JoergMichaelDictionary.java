@@ -692,6 +692,7 @@ import java.util.Optional;
  * Dictionary created by Jörg Michael. See the link in the README file.
  *
  * @since 0.1
+ * @todo: Issue-31. Let's implement the method and remove this todo.
  */
 public final class JoergMichaelDictionary implements NamesDictionary {
 
@@ -733,5 +734,10 @@ public final class JoergMichaelDictionary implements NamesDictionary {
         } catch (final URISyntaxException | IOException ignored) {
         }
         return result;
+    }
+
+    @Override
+    public NameGender gender(final String name) {
+        return null;
     }
 }

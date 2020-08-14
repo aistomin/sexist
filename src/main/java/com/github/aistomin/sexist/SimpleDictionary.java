@@ -704,4 +704,9 @@ public final class SimpleDictionary implements NamesDictionary {
     public Map<String, NameGender> names() {
         return this.dict;
     }
+
+    @Override
+    public NameGender gender(final String name) {
+        return this.dict.get(name);
+    }
 }

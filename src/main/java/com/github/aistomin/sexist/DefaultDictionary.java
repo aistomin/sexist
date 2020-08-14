@@ -685,6 +685,7 @@ import java.util.Map;
  * Default name <-> gender dictionary.
  *
  * @since 0.1
+ * @todo: Issue-30. Let's implement the method and remove this todo.
  */
 public final class DefaultDictionary implements NamesDictionary {
 
@@ -722,5 +723,10 @@ public final class DefaultDictionary implements NamesDictionary {
             }
         }
         return result;
+    }
+
+    @Override
+    public NameGender gender(final String name) {
+        return null;
     }
 }

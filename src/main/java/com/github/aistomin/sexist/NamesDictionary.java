@@ -691,4 +691,12 @@ public interface NamesDictionary {
      * @return Returns a map where key is the name and value is the gender.
      */
     Map<String, NameGender> names();
+
+    /**
+     * Get gender by person's name.
+     *
+     * @param name Person's name.
+     * @return Gender.
+     */
+    NameGender gender(String name);
 }
