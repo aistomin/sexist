@@ -701,4 +701,15 @@ class JoergMichaelDictionaryTest {
         Assertions.assertEquals(NameGender.MOSTLY_FEMALE, names.get("Thin"));
         Assertions.assertEquals(NameGender.ANDROGYNOUS, names.get("Jaylin"));
     }
+
+    /**
+     * Check that gender() method works correctly.
+     */
+    @Test
+    void testGender() {
+        Assertions.assertEquals(
+            NameGender.MALE,
+            new JoergMichaelDictionary().gender("Thord")
+        );
+    }
 }
