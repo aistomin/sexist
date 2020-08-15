@@ -739,4 +739,27 @@ class DefaultDictionaryTest {
         Assertions.assertEquals(NameGender.FEMALE, names.get(two));
         Assertions.assertEquals(NameGender.ANDROGYNOUS, names.get(three));
     }
+
+    /**
+     * Check that gender() method works correctly.
+     */
+    @Test
+    void testGender() {
+        final String name = "Andrej";
+        Assertions.assertEquals(
+            NameGender.MALE,
+            new DefaultDictionary(
+                new SimpleDictionary(
+                    Stream.of(
+                        new AbstractMap.SimpleEntry<>(name, NameGender.MALE)
+                    ).collect(
+                        Collectors.toMap(
+                            AbstractMap.SimpleEntry::getKey,
+                            AbstractMap.SimpleEntry::getValue
+                        )
+                    )
+                )
+            ).gender(name)
+        );
+    }
 }
