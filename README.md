@@ -1,6 +1,7 @@
 # SexIst
 [![Build Status](https://travis-ci.org/aistomin/sexist.svg?branch=master)](https://travis-ci.org/aistomin/sexist)
 [![Hits-of-Code](https://hitsofcode.com/github/aistomin/sexist)](https://hitsofcode.com/view/github/aistomin/sexist)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.aistomin/sexist/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.aistomin/sexist)
 
 _"Sexism is bad. The name of the library is derived from the word "Sex" and my surname :)" - Andrej Istomin._
    
