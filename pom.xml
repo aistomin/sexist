@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.aistomin</groupId>
     <artifactId>sexist</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1.1</version>
     <name>Sexist</name>
     <description>Java library which allows to detect person's gender by his/her first name.</description>
     <url>https://github.com/aistomin/sexist</url>
