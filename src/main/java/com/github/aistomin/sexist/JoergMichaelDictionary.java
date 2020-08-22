@@ -676,12 +676,11 @@
  */
 package com.github.aistomin.sexist;
 
-import com.google.common.io.Resources;
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.net.URISyntaxException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -698,39 +697,43 @@ public final class JoergMichaelDictionary implements NamesDictionary {
     /**
      * The first line in the file which contains the name.
      */
-    public static final int START_LINE = 362;
+    public static final int START_LINE = 361;
 
     @Override
     public Map<String, NameGender> names() {
         final Map<String, NameGender> result = new HashMap<>();
         try {
-            final List<String> lines = Files.readAllLines(
-                Paths.get(
-                    Resources
-                        .getResource("joerg_michaels_dictionary.txt")
-                        .toURI()
-                ),
-                StandardCharsets.ISO_8859_1
+            final InputStream ins = Thread
+                .currentThread()
+                .getContextClassLoader()
+                .getResourceAsStream("joerg_michaels_dictionary.txt");
+            final BufferedReader reader = new BufferedReader(
+                new InputStreamReader(ins, StandardCharsets.ISO_8859_1)
             );
-            for (
-                int index = JoergMichaelDictionary.START_LINE;
-                index < lines.size();
-                ++index
-            ) {
-                final List<String> split = Arrays.asList(
-                    lines.get(index).split(" ")
-                );
-                final Optional<String> optional = split
-                    .subList(1, split.size() - 1)
-                    .stream()
-                    .filter(str -> str.trim().length() > 0)
-                    .findFirst();
-                result.put(
-                    optional.get().trim(),
-                    NameGender.fromString(split.get(0).trim())
-                );
+            try {
+                int index = 0;
+                while (reader.ready()) {
+                    final String line = reader.readLine();
+                    if (index > JoergMichaelDictionary.START_LINE) {
+                        final List<String> split = Arrays.asList(
+                            line.split(" ")
+                        );
+                        final Optional<String> optional = split
+                            .subList(1, split.size() - 1)
+                            .stream()
+                            .filter(str -> str.trim().length() > 0)
+                            .findFirst();
+                        result.put(
+                            optional.get().trim(),
+                            NameGender.fromString(split.get(0).trim())
+                        );
+                    }
+                    ++index;
+                }
+            } finally {
+                reader.close();
             }
-        } catch (final URISyntaxException | IOException ignored) {
+        } catch (final IOException ignored) {
         }
         return result;
     }
