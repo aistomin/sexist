@@ -679,14 +679,15 @@ package com.github.aistomin.sexist;
 import java.util.Map;
 
 /**
- * General interface of the name <-> gender dictionary.
+ * General interface of the dictionary which has a person's name as a key and a
+ * person's gender as a value.
  *
  * @since 0.1
  */
 public interface NamesDictionary {
 
     /**
-     * Get all known name <-> gender definitions.
+     * Get all known names with it's genders.
      *
      * @return Returns a map where key is the name and value is the gender.
      */

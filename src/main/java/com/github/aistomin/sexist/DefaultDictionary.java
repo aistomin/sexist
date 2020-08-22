@@ -682,7 +682,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Default name <-> gender dictionary.
+ * Default genders dictionary.
  *
  * @since 0.1
  */
