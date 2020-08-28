@@ -707,10 +707,9 @@ public final class JoergMichaelDictionary implements NamesDictionary {
                 .currentThread()
                 .getContextClassLoader()
                 .getResourceAsStream("joerg_michaels_dictionary.txt");
-            final BufferedReader reader = new BufferedReader(
+            try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(ins, StandardCharsets.ISO_8859_1)
-            );
-            try {
+            )) {
                 int index = 0;
                 while (reader.ready()) {
                     final String line = reader.readLine();
@@ -730,8 +729,6 @@ public final class JoergMichaelDictionary implements NamesDictionary {
                     }
                     ++index;
                 }
-            } finally {
-                reader.close();
             }
         } catch (final IOException ignored) {
         }
