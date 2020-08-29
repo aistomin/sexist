@@ -48,5 +48,5 @@ Fork the repository, make changes, submit a pull request. Your changes will be
 Please run Maven build before submitting a pull request:
 
 ```
-$ mvn clean install package
+$ mvn clean install package javadoc:javadoc
 ```
