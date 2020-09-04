@@ -1,3 +1,6 @@
+docker:
+  image: "yegor256/java8"
+
 env:
   MAVEN_OPTS: "-XX:MaxPermSize=256m -Xmx1g"
 
@@ -5,7 +8,6 @@ merge:
   commanders:
     - aistomin
   script: |-
-    echo which java
     java -version
     mvn -version
     mvn clean install package javadoc:javadoc
