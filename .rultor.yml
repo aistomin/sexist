@@ -5,6 +5,8 @@ merge:
   commanders:
     - aistomin
   script: |-
+    export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+    export PATH=$PATH:$JAVA_HOME/bin
     java -version
     mvn -version
     mvn clean install package javadoc:javadoc
