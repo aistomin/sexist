@@ -5,7 +5,7 @@ merge:
   commanders:
     - aistomin
   script: |-
-    export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64/jre"
+    export JAVA_HOME=$(readlink -ze $(which java) | xargs -0 dirname | xargs -0 dirname)
     export PATH=$PATH:$JAVA_HOME/bin
     java -version
     mvn -version
