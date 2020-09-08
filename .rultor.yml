@@ -1,5 +1,5 @@
 docker:
-  image: "docker-maven/openjdk-8"
+  image: "maven/3.6.3-openjdk-8"
 
 env:
   MAVEN_OPTS: "-XX:MaxPermSize=256m -Xmx1g"
