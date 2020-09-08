@@ -8,7 +8,6 @@ merge:
   commanders:
     - aistomin
   script: |-
-    find / -type d -name "java" 2>/dev/null
     find / -type d -name "jdk" 2>/dev/null
     find / -type d -name "openjdk" 2>/dev/null
     echo $JAVA_HOME
