@@ -1,5 +1,5 @@
 docker:
-  image: "maven:3.6.3-openjdk-8"
+  image: "openjdk:8-jdk"
 
 env:
   MAVEN_OPTS: "-XX:MaxPermSize=256m -Xmx1g"
@@ -8,8 +8,9 @@ merge:
   commanders:
     - aistomin
   script: |-
-    ls -la /usr/lib/jvm/java-8-openjdk-amd64
-    export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+    which java
+    echo $JAVA_HOME
+    export JAVA_HOME=$(readlink -ze $(which java) | xargs -0 dirname | xargs -0 dirname)
     export PATH="${JAVA_HOME}/bin:${PATH}"
     echo $JAVA_HOME
     mvn -version
