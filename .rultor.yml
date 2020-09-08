@@ -8,7 +8,7 @@ merge:
   commanders:
     - aistomin
   script: |-
-    ll /usr/lib/jvm/java-8-openjdk-amd64
+    ls -la /usr/lib/jvm/java-8-openjdk-amd64
     export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
     export PATH="${JAVA_HOME}/bin:${PATH}"
     echo $JAVA_HOME
