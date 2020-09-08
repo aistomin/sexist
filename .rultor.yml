@@ -3,7 +3,7 @@ env:
 
 jdk:
   - oraclejdk8
-  -
+
 merge:
   commanders:
     - aistomin
