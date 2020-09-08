@@ -8,7 +8,6 @@ merge:
   commanders:
     - aistomin
   script: |-
-    which java
     echo $JAVA_HOME
     export JAVA_HOME=$(readlink -ze $(which java) | xargs -0 dirname | xargs -0 dirname)
     export PATH="${JAVA_HOME}/bin:${PATH}"
