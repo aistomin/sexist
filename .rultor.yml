@@ -8,5 +8,6 @@ merge:
   commanders:
     - aistomin
   script: |-
+    echo $JAVA_HOME
     mvn -version
     mvn clean install package javadoc:javadoc
