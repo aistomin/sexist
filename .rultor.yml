@@ -8,8 +8,8 @@ merge:
   commanders:
     - aistomin
   script: |-
-    ENV JAVA_HOME=/usr/lib/jvm/default-jvm
-    ENV PATH="${JAVA_HOME}/bin:${PATH}"
+    export JAVA_HOME=/usr/lib/jvm/default-jvm
+    export PATH="${JAVA_HOME}/bin:${PATH}"
     echo $JAVA_HOME
     mvn -version
     mvn clean install package javadoc:javadoc
