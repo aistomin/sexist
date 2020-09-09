@@ -7,5 +7,5 @@ branches:
     - master
 env:
   global:
-    - MAVEN_OPTS="-XX:MaxPermSize=512m -Xmx2g"
+    - MAVEN_OPTS="-Xmx2g"
 script: mvn clean install package javadoc:javadoc
