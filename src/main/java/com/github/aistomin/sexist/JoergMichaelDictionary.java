@@ -699,40 +699,57 @@ public final class JoergMichaelDictionary implements NamesDictionary {
      */
     public static final int START_LINE = 361;
 
+    /**
+     * Dictionary map.
+     */
+    private static final Map<String, NameGender> RESULT = new HashMap<>();
+
+    /**
+     * Mutex object for synchronisation.
+     */
+    private static final Object MUTEX = new Object();
+
+    @SuppressWarnings("PMD.AvoidDeeplyNestedIfStmts")
     @Override
     public Map<String, NameGender> names() {
-        final Map<String, NameGender> result = new HashMap<>();
-        try {
-            final InputStream ins = Thread
-                .currentThread()
-                .getContextClassLoader()
-                .getResourceAsStream("joerg_michaels_dictionary.txt");
-            try (BufferedReader reader = new BufferedReader(
-                new InputStreamReader(ins, StandardCharsets.ISO_8859_1)
-            )) {
-                int index = 0;
-                while (reader.ready()) {
-                    final String line = reader.readLine();
-                    if (index > JoergMichaelDictionary.START_LINE) {
-                        final List<String> split = Arrays.asList(
-                            line.split(" ")
-                        );
-                        final Optional<String> optional = split
-                            .subList(1, split.size() - 1)
-                            .stream()
-                            .filter(str -> str.trim().length() > 0)
-                            .findFirst();
-                        result.put(
-                            optional.get().trim(),
-                            NameGender.fromString(split.get(0).trim())
-                        );
+        // @checkstyle NestedIfDepthCheck (1000 lines)
+        if (JoergMichaelDictionary.RESULT.isEmpty()) {
+            synchronized (JoergMichaelDictionary.MUTEX) {
+                if (JoergMichaelDictionary.RESULT.isEmpty()) {
+                    try {
+                        final InputStream ins = Thread
+                            .currentThread()
+                            .getContextClassLoader()
+                            .getResourceAsStream("joerg_michaels_dictionary.txt");
+                        try (BufferedReader reader = new BufferedReader(
+                            new InputStreamReader(ins, StandardCharsets.ISO_8859_1)
+                        )) {
+                            int index = 0;
+                            while (reader.ready()) {
+                                final String line = reader.readLine();
+                                if (index > JoergMichaelDictionary.START_LINE) {
+                                    final List<String> split = Arrays.asList(
+                                        line.split(" ")
+                                    );
+                                    final Optional<String> optional = split
+                                        .subList(1, split.size() - 1)
+                                        .stream()
+                                        .filter(str -> str.trim().length() > 0)
+                                        .findFirst();
+                                    JoergMichaelDictionary.RESULT.put(
+                                        optional.get().trim(),
+                                        NameGender.fromString(split.get(0).trim())
+                                    );
+                                }
+                                ++index;
+                            }
+                        }
+                    } catch (final IOException ignored) {
                     }
-                    ++index;
                 }
             }
-        } catch (final IOException ignored) {
         }
-        return result;
+        return JoergMichaelDictionary.RESULT;
     }
 
     @Override
