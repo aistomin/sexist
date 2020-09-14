@@ -8,4 +8,5 @@ branches:
 env:
   global:
     - MAVEN_OPTS="-Xmx2g"
-script: mvn clean install package javadoc:javadoc
+    - CODECOV_TOKEN="b847d029-dbfb-4da1-b39e-4a50182f17f8"
+script: ./build.sh

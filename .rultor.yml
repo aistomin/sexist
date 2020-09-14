@@ -1,11 +1,9 @@
 env:
   MAVEN_OPTS: "-XX:MaxPermSize=256m -Xmx1g"
   JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
-  CODECOV_TOKEN: "b847d029-dbfb-4da1-b39e-4a50182f17f8"
 
 merge:
   commanders:
     - aistomin
   script: |-
     mvn clean install package javadoc:javadoc
-    bash <(curl -s https://codecov.io/bash)
