@@ -720,9 +720,13 @@ public final class JoergMichaelDictionary implements NamesDictionary {
                         final InputStream ins = Thread
                             .currentThread()
                             .getContextClassLoader()
-                            .getResourceAsStream("joerg_michaels_dictionary.txt");
+                            .getResourceAsStream(
+                                "joerg_michaels_dictionary.txt"
+                            );
                         try (BufferedReader reader = new BufferedReader(
-                            new InputStreamReader(ins, StandardCharsets.ISO_8859_1)
+                            new InputStreamReader(
+                                ins, StandardCharsets.ISO_8859_1
+                            )
                         )) {
                             int index = 0;
                             while (reader.ready()) {
@@ -738,7 +742,9 @@ public final class JoergMichaelDictionary implements NamesDictionary {
                                         .findFirst();
                                     JoergMichaelDictionary.RESULT.put(
                                         optional.get().trim(),
-                                        NameGender.fromString(split.get(0).trim())
+                                        NameGender.fromString(
+                                            split.get(0).trim()
+                                        )
                                     );
                                 }
                                 ++index;
