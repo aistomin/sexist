@@ -39,7 +39,7 @@
         </repository>
     </distributionManagement>
     <properties>
-        <junitVersion>5.9.0-M1</junitVersion>
+        <junitVersion>5.9.0-RC1</junitVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>15</maven.compiler.source>
         <linkXRef>false</linkXRef>
