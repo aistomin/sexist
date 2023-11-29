@@ -1,5 +1,5 @@
 # SexIst
-[![Build Status](https://travis-ci.org/aistomin/sexist.svg?branch=master)](https://travis-ci.org/aistomin/sexist)
+[![CI](https://github.com/aistomin/sexist/actions/workflows/maven.yml/badge.svg?branch=master)](https://github.com/aistomin/sexist/actions/workflows/maven.yml)
 [![Hits-of-Code](https://hitsofcode.com/github/aistomin/sexist)](https://hitsofcode.com/view/github/aistomin/sexist)
 [![codecov](https://codecov.io/gh/aistomin/sexist/branch/master/graph/badge.svg)](https://codecov.io/gh/aistomin/sexist)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.aistomin/sexist/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.aistomin/sexist)
