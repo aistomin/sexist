@@ -19,7 +19,7 @@ Add the following configuration to your project's `pom.xml`:
     <dependency>
         <groupId>com.github.aistomin</groupId>
         <artifactId>sexist</artifactId>
-        <version>0.2</version>
+        <version>1.0</version>
     </dependency>
     <!-- other dependencies are there -->
 </dependencies>
