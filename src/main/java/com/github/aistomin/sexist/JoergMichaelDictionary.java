@@ -713,9 +713,9 @@ public final class JoergMichaelDictionary implements NamesDictionary {
     @Override
     public Map<String, NameGender> names() {
         // @checkstyle NestedIfDepthCheck (1000 lines)
-        if (JoergMichaelDictionary.RESULT.isEmpty()) {
-            synchronized (JoergMichaelDictionary.MUTEX) {
-                if (JoergMichaelDictionary.RESULT.isEmpty()) {
+        if (RESULT.isEmpty()) {
+            synchronized (MUTEX) {
+                if (RESULT.isEmpty()) {
                     try {
                         final InputStream ins = Thread
                             .currentThread()
@@ -731,7 +731,7 @@ public final class JoergMichaelDictionary implements NamesDictionary {
                             int index = 0;
                             while (reader.ready()) {
                                 final String line = reader.readLine();
-                                if (index > JoergMichaelDictionary.START_LINE) {
+                                if (index > START_LINE) {
                                     final List<String> split = Arrays.asList(
                                         line.split(" ")
                                     );
@@ -740,7 +740,7 @@ public final class JoergMichaelDictionary implements NamesDictionary {
                                         .stream()
                                         .filter(str -> str.trim().length() > 0)
                                         .findFirst();
-                                    JoergMichaelDictionary.RESULT.put(
+                                    RESULT.put(
                                         optional.get().trim(),
                                         NameGender.fromString(
                                             split.get(0).trim()
@@ -755,7 +755,7 @@ public final class JoergMichaelDictionary implements NamesDictionary {
                 }
             }
         }
-        return JoergMichaelDictionary.RESULT;
+        return RESULT;
     }
 
     @Override
